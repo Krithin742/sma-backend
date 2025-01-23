@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from .serializers import *
 
+
 from rest_framework.views import APIView
 
 
@@ -73,30 +74,28 @@ class user_registration(APIView):
 
             return Response(serializer.data,status=status.HTTP_200_OK)
 
-    return Response(response_dict,status=status.HTTP_400_BAD_REQUEST)
+        return Response(response_dict,status=status.HTTP_400_BAD_REQUEST)
 
 
 
-def jls_extract_def(google, generativeai, rest_framework, views, response, serializers):
-    import google.generativeai as genai
-    import openai
-    from rest_framework.views import APIView
-    from rest_framework.response import Response
-    from .models import ChatHistory, RoomTable, RestaurantTable, RentedVehicle, Spot
-    from .serializers import RoomTableSerializer, RestaurantTableSerializer, RentedVehicleSerializer, SpotSerializer
-    return genai, openai, APIView, RoomTable, RentedVehicle, Spot, RestaurantTable, RoomTableSerializer, RentedVehicleSerializer, SpotSerializer, RestaurantTableSerializer, ChatHistory, Response
+    def jls_extract_def(google, generativeai, rest_framework, views, response, serializers):
+        import google.generativeai as genai
+        import openai
+        from rest_framework.views import APIView
+        from rest_framework.response import Response
+        from .models import ChatHistory, RoomTable, RestaurantTable, RentedVehicle, Spot
+        from .serializers import RoomTableSerializer, RestaurantTableSerializer, RentedVehicleSerializer, SpotSerializer
+        return genai, openai, APIView, RoomTable, RentedVehicle, Spot, RestaurantTable, RoomTableSerializer, RentedVehicleSerializer, SpotSerializer, RestaurantTableSerializer, ChatHistory, Response,
+    genai, openai, APIView, RoomTable, RentedVehicle, Spot, RestaurantTable, RoomTableSerializer, RentedVehicleSerializer, SpotSerializer, RestaurantTableSerializer, ChatHistory, Response = jls_extract_def(google, generativeai, rest_framework, views, response, serializers)
+
+    # Initialize Google Gemini API
+
+    genai.configure(api_key="AIzaSyA0USMpFTzWEzYM3EqiTyXCYKKdbeZ9BIE")  # Replace with your Gemini API key
 
 
-genai, openai, APIView, RoomTable, RentedVehicle, Spot, RestaurantTable, RoomTableSerializer, RentedVehicleSerializer, SpotSerializer, RestaurantTableSerializer, ChatHistory, Response = jls_extract_def(google, generativeai, rest_framework, views, response, serializers)
+    # Initialize OpenAI API
 
-# Initialize Google Gemini API
-
-genai.configure(api_key="AIzaSyA0USMpFTzWEzYM3EqiTyXCYKKdbeZ9BIE")  # Replace with your Gemini API key
-
-
-# Initialize OpenAI API
-
-openai.api_key = 'YOUR_OPENAI_API_KEY'  # Replace with your OpenAI API key
+    openai.api_key = 'YOUR_OPENAI_API_KEY'  # Replace with your OpenAI API key
 
 class ItineraryView(APIView):
 

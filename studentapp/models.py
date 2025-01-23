@@ -8,8 +8,8 @@ class Registration_table(models.Model):
     user_name=models.CharField(max_length=100,null=True,blank=True)
     phone_number=models.IntegerField(null=True,blank=True)
     password=models.CharField(max_length=8,null=True,blank=True)
-    confirm_password=models.CharField(max_length=8,null=True,blank=True)
-    user_type=models.CharField(max_length=100,null=True,blank=True) 
+    
+   
 
 
 
@@ -23,6 +23,6 @@ class ChatHistory(models.Model):
         return f"Chat at {self.timestamp}"
 
 class SumHistory(models.Model):
-    file_name=models.models.CharField(max_length=50,null=True,blank=True)
-    summerize=models.models.CharField(max_length=50,null=True,blank=True)
-    date=models.models.models.DateTimeField(auto_now_add=True,null=True,blank=True)
+    file_name=models.CharField(max_length=50,null=True,blank=True)
+    summerize=models.CharField(max_length=50,null=True,blank=True)
+    date=models.DateTimeField(auto_now_add=True,null=True,blank=True)
