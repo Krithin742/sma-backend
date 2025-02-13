@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import ItineraryView
+from .views import *
 urlpatterns = [
-    path('generate-itinerary/', ItineraryView.as_view(), name='generate_itinerary'),
+    path('login',login.as_view(),name='login'),
+    path('chatbotapi', chatbotapi.as_view(), name='chatbotapi'),
+    path('user_registration',user_registration.as_view(),name='user_registration')
 ]
 
